@@ -43,6 +43,7 @@ public class LinkedList<E> extends AbstractList<E>{
 	
 	@Override
 	public void insert(int index, E element) {
+		rangeCheckForAdd(index);
 		if (index == 0) {
 			firstNode = new Node<>(element, firstNode);
 		}else {

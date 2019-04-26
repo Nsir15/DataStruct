@@ -51,7 +51,7 @@ public abstract class AbstractList<E> implements List<E>{
 	
 	@Override
 	public void outOfBounds(int index) {
-		throw new IndexOutOfBoundsException("index : " + index + ", bounds : [ 0 ~ " + size + " ]");
+		throw new IndexOutOfBoundsException("index : " + index + ", bounds : [ 0 ~ " + (size -1) + " ]");
 	}
 
 }

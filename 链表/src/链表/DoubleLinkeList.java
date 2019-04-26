@@ -24,7 +24,7 @@ public class DoubleLinkeList<E> extends AbstractList<E> {
 	@Override
 	public void clear() {
 		// TODO Auto-generated method stub
-		//只要不是被栈引用就会被自动销毁
+		//只要不是被GC ROOT 对象 引用就会被自动销毁
 		size = 0;
 		firstNode = null;
 		lastNode = null;

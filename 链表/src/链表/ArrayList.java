@@ -113,4 +113,10 @@ public class ArrayList<E> extends AbstractList <E>{
 		}
 		elements = newElements;
 	}
+
+	@Override
+	public void deleteDuplicates() {
+		// TODO Auto-generated method stub
+		
+	}
 }

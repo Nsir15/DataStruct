@@ -3,8 +3,6 @@ package 队列;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import apple.laf.JRSUIConstants.Size;
-
 public class _225_用队列实现栈 {
 	
 	private Queue<Integer> queue  ;

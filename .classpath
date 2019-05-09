@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="动态数组/src"/>
+	<classpathentry kind="src" path="队列/src"/>
+	<classpathentry kind="src" path="二叉搜索树/src"/>
+	<classpathentry kind="src" path="链表/src"/>
+	<classpathentry kind="src" path="栈/src"/>
+	<classpathentry kind="src" path="LeeCode/src"/>
+	<classpathentry kind="output" path="LeeCode/bin"/>
+</classpath>

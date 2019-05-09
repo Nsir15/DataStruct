@@ -1,4 +1,4 @@
-package com.nx;
+package come.nx.tree;
 
 import java.util.Comparator;
 
@@ -46,7 +46,6 @@ public class BinarySearchTree <E> extends BinaryTree<E>{
 			}
 			size ++;
 		}
-		
 	}
 	
 	public void remove(E element) {
@@ -94,6 +93,7 @@ public class BinarySearchTree <E> extends BinaryTree<E>{
 		if (node == null) {
 			return;
 		}
+		
 		//度为2的结点，这里先把处理度为2 的结点，使用前驱或者后继覆盖要删除结点的值，最后在删除叶子结点的时候，会把之前的那个后继或者前驱删除掉
 		if (node.hasChildren()) {
 			Node<E> predecessorNode = predecessor(node);
@@ -124,7 +124,7 @@ public class BinarySearchTree <E> extends BinaryTree<E>{
 			}
 		}
 		
-		size --;
+		
 		
 	}
 	

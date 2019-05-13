@@ -34,6 +34,16 @@ public class BinaryTree <E> implements BinaryTreeInfo{
 		public boolean isRightChildren() {
 			return parentNode != null && this == parentNode.rightNode;
 		}
+		
+		public Node<E> siblingNode(){
+			if (isLeftChildren()) {
+				return parentNode.rightNode;
+			}else if (isRightChildren()) {
+				return parentNode.leftNode;
+			} else {
+				return null;
+			}
+		}
 	}
 	
 	protected int size;
@@ -170,7 +180,7 @@ public class BinaryTree <E> implements BinaryTreeInfo{
 	@Override
 	public Object string(Object node) {
 		// TODO Auto-generated method stub
-		return ((Node<E>)node).element;
+		return ((Node<E>)node);
 	}
 	
 	

@@ -17,23 +17,28 @@ public class Main {
 		for (Integer integer : datas) {
 			rbTree.add(integer);
 			
-			System.out.println("【" + integer + "】" + "\n");
-			BinaryTrees.println(rbTree);
-			System.out.println(" \n -------------------------------------");
+//			System.out.println("【" + integer + "】" + "\n");
+//			BinaryTrees.println(rbTree);
+//			System.out.println(" \n -------------------------------------");
 		}
 		
-//		BinaryTrees.println(rbTree);
-//
-////		rbTree.remove(90);
-//		rbTree.remove(74);
-//		System.out.println(" \n -------------------------------------");
-//
-//		BinaryTrees.println(rbTree);
-//		
-//		rbTree.remove(62);
-//		System.out.println(" \n -------------------------------------");
-//
-//		BinaryTrees.println(rbTree);
+		BinaryTrees.println(rbTree);
+
+//		rbTree.remove(90);
+		rbTree.remove(74);
+		System.out.println(" \n -------------------------------------");
+
+		BinaryTrees.println(rbTree);
+		
+		rbTree.remove(62);
+		System.out.println(" \n -------------------------------------");
+
+		BinaryTrees.println(rbTree);
+		
+		rbTree.remove(68);
+		System.out.println(" \n -------------------------------------");
+
+		BinaryTrees.println(rbTree);
 	}
 	
 	public static void test0() {

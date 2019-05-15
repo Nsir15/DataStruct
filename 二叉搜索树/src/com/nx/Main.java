@@ -8,7 +8,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		BinarySearchTree<Integer> binarySearchTree = new BinarySearchTree<Integer>();
-		Integer data[] = {7,4,9,2,11,1,3,10,12};
+		Integer[] data = {55, 87, 56, 74, 96, 22, 62, 20, 70, 68, 90, 50};
 		for (Integer integer : data) {
 			binarySearchTree.add(integer);
 		}
@@ -64,7 +64,7 @@ public class Main {
 		System.out.println(binarySearchTree.height2());
 		
 		
-		binarySearchTree.remove(4);
+		binarySearchTree.remove(74);
 		BinaryTrees.print(binarySearchTree);
 	}
 	

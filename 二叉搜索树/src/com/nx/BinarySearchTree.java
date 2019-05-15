@@ -117,7 +117,7 @@ public class BinarySearchTree <E> extends BinaryTree<E>{
 			childrentNode.parentNode = node.parentNode;
 			if (node.parentNode == null) { //度为1并且是根节点
 				rootNode = childrentNode;
-			}else if (childrentNode == node.leftNode) {
+			}else if (node == node.parentNode.leftNode) {
 				node.parentNode.leftNode = childrentNode;
 			}else {
 				node.parentNode.rightNode = childrentNode;

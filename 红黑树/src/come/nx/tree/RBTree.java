@@ -66,12 +66,8 @@ public class RBTree<E> extends BalanceBinarySearchTree<E> {
 	}
 	
 	@Override
-	protected void dealBalanceWithRemove(Node<E> node,Node<E> replacementNode) {
+	protected void dealBalanceWithRemove(Node<E> node) {
 		
-		//删除的是红色节点
-		if (isRed(node)) {
-			return;
-		}
 		Node<E> parentNode = node.parentNode;
 		//删除的是根节点
 		if (parentNode == null) {
@@ -79,8 +75,8 @@ public class RBTree<E> extends BalanceBinarySearchTree<E> {
 		}
 		
 		//删除的是黑色节点
-		if (isRed(replacementNode)) { //删除拥有一个RED子节点的黑色节点
-			black(replacementNode); //将替代的节点染成黑色即可
+		if (isRed(node)) { //删除的是红色节点 或者 删除拥有一个RED子节点的黑色节点
+			black(node); //将替代的节点染成黑色即可
 		}else {//删除的是黑色叶子节点
 //			Node<E> siblingNode = node.siblingNode(); //这种方式有问题，因为node 已经被删除了，所以得到的一直是 NULL.
 			Boolean isLeft = parentNode.leftNode == null || node.isLeftChildren(); //判断被删除节点是左还是右.
@@ -102,7 +98,7 @@ public class RBTree<E> extends BalanceBinarySearchTree<E> {
 					black(parentNode);
 					red(siblingNode);
 					if (isBlack(parentNode)) {
-						dealBalanceWithRemove(parentNode, null);
+						dealBalanceWithRemove(parentNode);
 					}
 				}else { //至少有一个RED子节点
 					//如果是两个RED子节点的话，就用左边，这里就是RR情况，只需要进行一次旋转就可以了
@@ -131,7 +127,7 @@ public class RBTree<E> extends BalanceBinarySearchTree<E> {
 					black(parentNode);
 					red(siblingNode);
 					if (isBlack(parentNode)) {
-						dealBalanceWithRemove(parentNode, null);
+						dealBalanceWithRemove(parentNode);
 					}
 				}else { //至少有一个RED子节点
 					//如果是两个RED子节点的话，就用左边，这里就是LL情况，只需要进行一次旋转就可以了

@@ -115,11 +115,11 @@ public class BinarySearchTree <E> extends BinaryTree<E>{
 				node.parentNode.rightNode = null;
 			}
 			
-			dealBalanceWithRemove(node,null);
+			dealBalanceWithRemove(node);
 
 		}else if (node.isLeaf() && node == rootNode) {
 			rootNode = null;
-			dealBalanceWithRemove(node,null);
+			dealBalanceWithRemove(node);
 
 		}else if (childrentNode != null) {//((node.leftNode == null && node.rightNode != null) || (node.leftNode != null && node.rightNode == null)) {
 			//度为1的结点
@@ -131,7 +131,7 @@ public class BinarySearchTree <E> extends BinaryTree<E>{
 			}else {
 				node.parentNode.rightNode = childrentNode;
 			}
-			dealBalanceWithRemove(node,childrentNode);
+			dealBalanceWithRemove(childrentNode);
 		}
 	}
 	
@@ -140,5 +140,5 @@ public class BinarySearchTree <E> extends BinaryTree<E>{
 	protected void dealBalance(Node<E> node) {}
 	
 	//处理删除结点导致的失衡
-	protected void dealBalanceWithRemove(Node<E> node,Node<E> replacementNode) {}
+	protected void dealBalanceWithRemove(Node<E> node) {}
 }

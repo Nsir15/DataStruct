@@ -83,7 +83,7 @@ public class RBTree<E> extends BalanceBinarySearchTree<E> {
 			black(replacementNode); //将替代的节点染成黑色即可
 		}else {//删除的是黑色叶子节点
 //			Node<E> siblingNode = node.siblingNode(); //这种方式有问题，因为node 已经被删除了，所以得到的一直是 NULL.
-			Boolean isLeft = parentNode.leftNode == null; //判断被删除节点是左还是右.
+			Boolean isLeft = parentNode.leftNode == null || node.isLeftChildren(); //判断被删除节点是左还是右.
 			Node<E> siblingNode = isLeft ? parentNode.rightNode : parentNode.leftNode;
 			if (isLeft) { //被删除的叶子节点是左节点
 				

@@ -52,6 +52,9 @@ public class BinaryTree <E> implements BinaryTreeInfo{
 	 * 前序遍历
 	 */
 	public void preorderTraversal(Visitor<E> visitor) {
+		if (visitor == null) {
+			return;
+		}
 		preorderTraversal(rootNode, visitor);
 	}
 	
@@ -60,6 +63,9 @@ public class BinaryTree <E> implements BinaryTreeInfo{
 	 * @param visitor
 	 */
 	public void inorderTraversal(Visitor<E> visitor) {
+		if (visitor == null) {
+			return;
+		}
 		inorderTraversal(rootNode, visitor);
 	}
 	
@@ -68,6 +74,9 @@ public class BinaryTree <E> implements BinaryTreeInfo{
 	 * @param visitor
 	 */
 	public void postorderTraversal(Visitor<E> visitor) {
+		if (visitor == null) {
+			return;
+		}
 		postorderTraversal(rootNode, visitor);
 	}
 	
@@ -85,7 +94,9 @@ public class BinaryTree <E> implements BinaryTreeInfo{
 		queue.offer(rootNode);
 		while (!queue.isEmpty()) {
 			Node<E> node  = queue.poll();
-			visitor.visitor(node.element);
+			if (visitor.visitor(node.element)) {
+				return;
+			}
 			if (node.leftNode != null) {
 				queue.offer(node.leftNode);
 			}
@@ -97,8 +108,14 @@ public class BinaryTree <E> implements BinaryTreeInfo{
 	}
 	
 	
-	public static interface Visitor<E>{
-		void visitor(E element);
+	public static abstract class Visitor<E>{
+		boolean stop;
+		/**
+		 * 返回true 停止遍历
+		 * @param element
+		 * @return
+		 */
+		public abstract boolean visitor(E element);
 	}
 	
 	
@@ -168,22 +185,25 @@ public class BinaryTree <E> implements BinaryTreeInfo{
 	
 	
 	private void preorderTraversal(Node<E> node , Visitor<E> visitor) {
-		if (node == null || visitor == null) {
+		if (node == null || visitor.stop) {
 			return;
 		}
 		
-		visitor.visitor(node.element);
+		visitor.stop = visitor.visitor(node.element);
 		preorderTraversal(node.leftNode, visitor);
 		preorderTraversal(node.rightNode, visitor);
 	}
 	
 	private void inorderTraversal(Node<E> node , Visitor<E> visitor) {
-		if (node == null || visitor == null) {
+		if (node == null || visitor.stop) {
 			return;
 		}
 		
 		inorderTraversal(node.leftNode, visitor);
-		visitor.visitor(node.element);
+		if (visitor.stop) {
+			return;
+		}
+		visitor.stop = visitor.visitor(node.element);
 		inorderTraversal(node.rightNode,visitor);
 	}
 	
@@ -194,7 +214,10 @@ public class BinaryTree <E> implements BinaryTreeInfo{
 		
 		postorderTraversal(node.leftNode, visitor);
 		postorderTraversal(node.rightNode, visitor);
-		visitor.visitor(node.element);
+		if (visitor.stop) {
+			return;
+		}
+		visitor.stop = visitor.visitor(node.element);
 	}
 
 	private int height(Node<E> node) {

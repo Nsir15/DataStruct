@@ -16,11 +16,11 @@ public class Main {
 		System.out.println("\n");
 		
 		binarySearchTree.preorderTraversal(new Visitor<Integer>() {
-			
+
 			@Override
-			public void visitor(Integer element) {
+			public boolean visitor(Integer element) {
 //				System.out.println(element);
-				
+				return element == 56;
 			}
 		});
 		
@@ -29,10 +29,11 @@ public class Main {
 		binarySearchTree.inorderTraversal(new Visitor<Integer>() {
 
 			@Override
-			public void visitor(Integer element) {
+			public boolean visitor(Integer element) {
 				// TODO Auto-generated method stub
 				
 //				System.out.println(element);
+				return element == 22;
 				
 			}
 		});
@@ -41,10 +42,10 @@ public class Main {
 		binarySearchTree.postorderTraversal(new Visitor<Integer>() {
 
 			@Override
-			public void visitor(Integer element) {
+			public boolean visitor(Integer element) {
 				// TODO Auto-generated method stub
-//				System.out.println(element);
-				
+				System.out.println(element);
+				return element == 22;
 			}
 			
 		});
@@ -52,20 +53,20 @@ public class Main {
 		binarySearchTree.levelorderTraversal(new Visitor<Integer>() {
 
 			@Override
-			public void visitor(Integer element) {
+			public boolean visitor(Integer element) {
 				// TODO Auto-generated method stub
 //				System.out.println(element);
-				
+				return element == 56;
 			}
 			
 		});
 		
 		
-		System.out.println(binarySearchTree.height2());
+//		System.out.println(binarySearchTree.height2());
 		
 		
-		binarySearchTree.remove(74);
-		BinaryTrees.print(binarySearchTree);
+//		binarySearchTree.remove(74);
+//		BinaryTrees.print(binarySearchTree);
 	}
 	
 }

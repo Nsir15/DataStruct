@@ -208,7 +208,7 @@ public class BinaryTree <E> implements BinaryTreeInfo{
 	}
 	
 	private void postorderTraversal(Node<E> node,Visitor<E> visitor) {
-		if (node == null || visitor == null) {
+		if (node == null || visitor.stop) {
 			return;
 		}
 		
